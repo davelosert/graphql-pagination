@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/davelosert/graphql-pagination#readme",
   "devDependencies": {
+    "@octokit/core": "^4.0.5",
     "@types/common-tags": "^1.8.1",
     "common-tags": "^1.8.2",
+    "fetch-mock": "^9.11.0",
+    "graphql": "^16.6.0",
     "typescript": "^4.7.4",
     "vitest": "^0.22.1"
   }
