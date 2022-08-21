@@ -28,7 +28,7 @@ describe('paginateComplex()', () => {
     
     const paginate = paginateComplex(octokit);
     
-    await paginate(`
+    const result = await paginate(`
       query paginate($cursor: String) {
         repository(owner: "octokit", name: "rest.js") {
           issues(first: 10, after: $cursor) {
@@ -48,5 +48,10 @@ describe('paginateComplex()', () => {
     const [first, second] = getPassedVariables();
     expect(first).toEqual({});
     expect(second).toEqual({ cursor: 'endCursor1' });
+    expect(result).toEqual({
+      repository: {
+        issues: [{ title: 'issue 1' }, { title: 'issue 2' }]
+      }
+    });
   });
 });
